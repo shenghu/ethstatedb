@@ -1,0 +1,78 @@
+{
+  "name": "ethstatedb",
+  "description": "Command to check Ethereum state database",
+  "version": "0.0.1",
+  "author": "Sheng Hu <shenghubj@gmail.com>",
+  "bin": {
+    "ethstatedb": "./bin/run"
+  },
+  "bugs": "https://github.com/shenghu/ethstatedb/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.13",
+    "@oclif/config": "^1.12.12",
+    "@oclif/plugin-help": "^2.1.6",
+    "@types/async": "^2.4.1",
+    "@types/fs-extra": "^7.0.0",
+    "cli-ux": "^5.2.1",
+    "ethereumjs-account": "^3.0.0",
+    "ethereumjs-block": "^2.2.0",
+    "ethereumjs-blockchain": "^3.4.0",
+    "ethereumjs-util": "^6.1.0",
+    "ethereumjs-vm": "^3.0.0",
+    "ethjs-util": "^0.1.6",
+    "fs-extra": "^8.0.1",
+    "level": "^5.0.1",
+    "leveldown": "^5.0.2",
+    "levelup": "^4.0.1",
+    "merkle-patricia-tree": "^3.0.0",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.0",
+    "@oclif/test": "^1.2.4",
+    "@oclif/tslint": "^3.1.1",
+    "@types/chai": "^4.1.7",
+    "@types/leveldown": "^4.0.0",
+    "@types/levelup": "^3.1.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.14.5",
+    "chai": "^4.2.0",
+    "globby": "^8.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/shenghu/ethstatedb",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "ethstatedb",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "shenghu/ethstatedb",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
