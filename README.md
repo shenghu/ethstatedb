@@ -18,24 +18,24 @@ This cli is created when I was studying Ethereum. I was curious about when and h
 <!-- usage -->
 ```sh-session
 $ npm install -g ethstatedb
-
-$ ethstatedb account -d .db/chaindata/ -r 0xecc60e00b3fe5ce9f6e1a10e5469764daf51f1fe93c22ec3f9a7583a80357217 0x095e7baea6a6c7c4c2dfeb977efac326af552
-
-Address   0x095e7baea6a6c7c4c2dfeb977efac326af552 
-Balance   0                                       
-Nonce     0                                       
-StateRoot                                         
-CodeHash 
+$ ethstatedb COMMAND
+running command...
+$ ethstatedb (-v|--version|version)
+ethstatedb/0.0.1 linux-x64 node-v10.15.3
+$ ethstatedb --help [COMMAND]
+USAGE
+  $ ethstatedb COMMAND
+...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`ethstatedb account [ADDRESS]`](#ethstatedb-account)
-* [`ethstatedb help`](#ethstatedb-help)
+* [`ethstatedb account ADDRESS`](#ethstatedb-account-address)
+* [`ethstatedb help [COMMAND]`](#ethstatedb-help-command)
 
-## `ethstatedb account [ADDRESS]`
+## `ethstatedb account ADDRESS`
 
-Retrieve account information from Ethereum state database
+Load information of an account
 
 ```
 USAGE
@@ -54,23 +54,22 @@ EXAMPLE
   0x595e3a0db7f38600770a267b12b67a8da1c202fef4b6c21e60fdb92477d89753 0x7C476EA4e20D6d49820Ee810C0C474ED11b3f527
 ```
 
+_See code: [src/commands/account.ts](https://github.com/shenghu/ethstatedb/blob/v0.0.1/src/commands/account.ts)_
 
+## `ethstatedb help [COMMAND]`
 
-## `ethstatedb help`
-
-Display help for ethstatedb
+display help for ethstatedb
 
 ```
-Command to check Ethereum state database
-
-VERSION
-  ethstatedb/0.0.1 linux-x64 node-v10.15.3
-
 USAGE
-  $ ethstatedb [COMMAND]
+  $ ethstatedb help [COMMAND]
 
-COMMANDS
-  account  Load information of an account
-  help     display help for ethstatedb
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
 ```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 <!-- commandsstop -->

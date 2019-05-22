@@ -1,7 +1,7 @@
 {
   "name": "ethstatedb",
   "description": "Command to check Ethereum state database",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Sheng Hu <shenghubj@gmail.com>",
   "bin": {
     "ethstatedb": "./bin/run"
@@ -12,6 +12,7 @@
     "@oclif/config": "^1.12.12",
     "@oclif/plugin-help": "^2.1.6",
     "@types/async": "^2.4.1",
+    "@types/bn.js": "^4.11.5",
     "@types/fs-extra": "^7.0.0",
     "cli-ux": "^5.2.1",
     "ethereumjs-account": "^3.0.0",
@@ -70,7 +71,7 @@
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
