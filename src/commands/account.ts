@@ -4,7 +4,7 @@ import EAccount from 'ethereumjs-account'
 import {BN, KECCAK256_NULL_S, KECCAK256_RLP_S} from 'ethereumjs-util'
 
 export default class Account extends Command {
-  static description = 'Load information of an account'
+  static description = 'load information of an account'
 
   static examples = [
     '$ ethstatedb account --dbdir /home/data/ethereum-node1/geth/chaindata --root 0x595e3a0db7f38600770a267b12b67a8da1c202fef4b6c21e60fdb92477d89753 0x7C476EA4e20D6d49820Ee810C0C474ED11b3f527',
