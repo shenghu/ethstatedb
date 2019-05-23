@@ -12,11 +12,27 @@ export default class Account extends Command {
 
   static flags = {
     help: flags.help({char: 'h'}),
-    dbdir: flags.string({char: 'd', required: true, description: 'path of Ethereum state database, e.g. ethereum/geth/chaindata'}),
-    root: flags.string({char: 'r', required: true, description: 'value of stateRoot'}),
+    dbdir: flags.string({
+      char: 'd',
+      required: true,
+      description:
+        'path of Ethereum state database, e.g. ethereum/geth/chaindata',
+    }),
+    root: flags.string({
+      char: 'r',
+      required: true,
+      description: 'value of stateRoot',
+    }),
   }
 
-  static args = [{name: 'address', required: true, description: 'public key of an account, e.g. 0x7C476EA4e20D6d49820Ee810C0C474ED11b3f527'}]
+  static args = [
+    {
+      name: 'address',
+      required: true,
+      description:
+        'public key of an account, e.g. 0x7C476EA4e20D6d49820Ee810C0C474ED11b3f527',
+    },
+  ]
 
   async run() {
     const Trie = require('merkle-patricia-tree/secure')
@@ -28,18 +44,16 @@ export default class Account extends Command {
 
     const found = await new Promise((resolve, reject) => {
       trie.checkRoot(flags.root, (err: any, value: boolean) => {
-        if (err)
-          return reject(err)
+        if (err) return reject(err)
 
         resolve(value)
       })
     })
 
-    if (!found)
-      return this.warn(`stateRoot (${flags.root}) is not found in db`)
+    if (!found) return this.warn(`stateRoot (${flags.root}) is not found in db`)
 
     const account: EAccount = await new Promise((resolve, reject) => {
-      trie.get(args.address, function (err: Error, raw: any) {
+      trie.get(args.address, (err: Error, raw: any) => {
         if (err) return reject(err)
 
         return resolve(new EAccount(raw))
@@ -51,14 +65,33 @@ export default class Account extends Command {
   }
 
   print(address: string, account: EAccount) {
-    cli.table([{name: 'Address', value: address},
-    {
-      name: 'Balance', value: `${new BN(account.balance).toString()}`
-    },
-    {name: 'Nonce', value: `${new BN(account.nonce).toString()}`},
-    {name: 'StateRoot', value: `${account.stateRoot.toString('hex') === KECCAK256_RLP_S ? '' : ('0x' + account.stateRoot.toString('hex'))}`},
-    {name: 'CodeHash', value: `${account.codeHash.toString('hex') === KECCAK256_NULL_S ? '' : ('0x' + account.codeHash.toString('hex'))}`}],
+    cli.table(
+      [
+        {name: 'Address', value: address},
+        {
+          name: 'Balance',
+          value: `${new BN(account.balance).toString()}`,
+        },
+        {name: 'Nonce', value: `${new BN(account.nonce).toString()}`},
+        {
+          name: 'StateRoot',
+          value: `${
+            account.stateRoot.toString('hex') === KECCAK256_RLP_S
+              ? ''
+              : '0x' + account.stateRoot.toString('hex')
+          }`,
+        },
+        {
+          name: 'CodeHash',
+          value: `${
+            account.codeHash.toString('hex') === KECCAK256_NULL_S
+              ? ''
+              : '0x' + account.codeHash.toString('hex')
+          }`,
+        },
+      ],
       {name: {}, value: {}},
-      {printLine: this.log, 'no-header': true})
+      {printLine: this.log, 'no-header': true},
+    )
   }
 }

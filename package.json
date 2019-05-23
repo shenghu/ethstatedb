@@ -38,9 +38,11 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^10.14.5",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
     "globby": "^8.0.2",
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
+    "prettier": "^1.17.1",
     "ts-node": "^8.1.0",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
@@ -67,10 +69,33 @@
       "@oclif/plugin-help"
     ]
   },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 50,
+    "sourceMap": false,
+    "instrument": false,
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary",
+      "cobertura"
+    ],
+    "report-dir": ".coverage",
+    "exclude": [
+      "tests"
+    ]
+  },
   "repository": "shenghu/ethstatedb",
   "scripts": {
+    "coveralls": "npm run test && if [ -n \"$COVERALLS_REPO_TOKEN\" ]; then coveralls <.coverage/lcov.info; fi",
+    "lint": "tslint -p test -t stylish",
+    "format": "prettier --config .prettierrc --write \"{src,tests}/**/*.{ts,js}\"",
     "postpack": "rm -f oclif.manifest.json",
-    "posttest": "tslint -p test -t stylish",
+    "posttest": "npm run format && npm run lint",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
