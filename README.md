@@ -8,6 +8,7 @@ Command to check Ethereum state database
 [![Downloads/week](https://img.shields.io/npm/dw/ethstatedb.svg)](https://npmjs.org/package/ethstatedb)
 [![License](https://img.shields.io/npm/l/ethstatedb.svg)](https://github.com/shenghu/ethstatedb/blob/master/package.json)
 [![CircleCI](https://circleci.com/gh/shenghu/ethstatedb.svg?style=svg)](https://circleci.com/gh/shenghu/ethstatedb)
+[![Coverage Status](https://coveralls.io/repos/github/shenghu/ethstatedb/badge.svg?branch=master)](https://coveralls.io/github/shenghu/ethstatedb?branch=master)
 
 This cli is created when I was studying Ethereum. I was curious about when and how an accout is created and maintained by Ethereum state database. From [Diving into Ethereum?s world state](https://medium.com/cybermiles/diving-into-ethereums-world-state-c893102030ed), it said accounts are nbot created in state database until there is a transaction for it. So I create this small tool to verify it.  
 
