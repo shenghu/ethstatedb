@@ -3,10 +3,8 @@ ethstatedb
 
 Command to check Ethereum state database
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/ethstatedb.svg)](https://npmjs.org/package/ethstatedb)
 [![Downloads/week](https://img.shields.io/npm/dw/ethstatedb.svg)](https://npmjs.org/package/ethstatedb)
-[![License](https://img.shields.io/npm/l/ethstatedb.svg)](https://github.com/shenghu/ethstatedb/blob/master/package.json)
 [![CircleCI](https://circleci.com/gh/shenghu/ethstatedb.svg?style=svg)](https://circleci.com/gh/shenghu/ethstatedb)
 [![Coverage Status](https://coveralls.io/repos/github/shenghu/ethstatedb/badge.svg?branch=master)](https://coveralls.io/github/shenghu/ethstatedb?branch=master)
 
