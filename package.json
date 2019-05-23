@@ -33,8 +33,10 @@
     "@oclif/dev-cli": "^1.22.0",
     "@oclif/test": "^1.2.4",
     "@oclif/tslint": "^3.1.1",
+    "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/commit-analyzer": "^6.1.0",
     "@semantic-release/git": "^7.0.8",
+    "@semantic-release/npm": "^5.1.9",
     "@semantic-release/release-notes-generator": "^7.1.4",
     "@types/chai": "^4.1.7",
     "@types/leveldown": "^4.0.0",
@@ -100,6 +102,8 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
       [
         "@semantic-release/git",
         {
