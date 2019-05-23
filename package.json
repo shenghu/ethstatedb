@@ -61,7 +61,7 @@
   ],
   "homepage": "https://github.com/shenghu/ethstatedb",
   "keywords": [
-    "oclif"
+    "ethereum", "blockchain"
   ],
   "license": "MIT",
   "main": "lib/index.js",
