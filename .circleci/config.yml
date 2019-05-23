@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   working_directory: ~/project/ethstatedb
@@ -59,6 +59,16 @@ jobs:
       - run:
           name: coveralls
           command: npm run coveralls
+  release:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: 
+          name: npm install
+          command: npm install
+      - run: 
+          name: npx semantic-release        
+          command: npx semantic-release  
 workflows:
   version: 2
   install-lint-test:
@@ -73,3 +83,10 @@ workflows:
       - coveralls:
           requires:
             - test
+      - release:
+          requires:
+            - lint
+            - test
+          filters:
+            branches:
+              only: master     
