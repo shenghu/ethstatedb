@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/shenghu/ethstatedb/compare/v1.0.4...v1.0.5) (2019-05-24)
+
+
+### Bug Fixes
+
+* bin/run is not found ([eb2be91](https://github.com/shenghu/ethstatedb/commit/eb2be91))
+
 ## [1.0.4](https://github.com/shenghu/ethstatedb/compare/v1.0.3...v1.0.4) (2019-05-24)
 
 
