@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/shenghu/ethstatedb/compare/v1.0.5...v1.0.6) (2019-05-24)
+
+
+### Bug Fixes
+
+* Update README ([0b0db0a](https://github.com/shenghu/ethstatedb/commit/0b0db0a))
+
 ## [1.0.5](https://github.com/shenghu/ethstatedb/compare/v1.0.4...v1.0.5) (2019-05-24)
 
 
