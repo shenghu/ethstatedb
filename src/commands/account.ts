@@ -2,6 +2,7 @@ import {Command, flags} from '@oclif/command'
 import cli from 'cli-ux'
 import EAccount from 'ethereumjs-account'
 import {BN, KECCAK256_NULL_S, KECCAK256_RLP_S} from 'ethereumjs-util'
+import * as fs from 'fs-extra'
 
 export default class Account extends Command {
   static description = 'load information of an account'
@@ -23,6 +24,15 @@ export default class Account extends Command {
       required: true,
       description: 'value of stateRoot',
     }),
+    'skip-copy': flags.boolean({
+      required: false,
+      description:
+        'skip copying database to .ethstatedb. By default, database is copied to avoid messing the original database.',
+    }),
+    'work-dir': flags.string({
+      required: false,
+      description: 'directory to pull down database',
+    }),
   }
 
   static args = [
@@ -39,7 +49,15 @@ export default class Account extends Command {
     const level = require('level')
 
     const {args, flags} = this.parse(Account)
-    const db = level(flags.dbdir)
+
+    let workDir = flags.dbdir
+    if (!flags['skip-copy']) {
+      workDir = flags['work-dir'] || '.ethstatedb'
+      await fs.emptyDir(workDir)
+      await fs.copy(flags.dbdir, workDir)
+    }
+
+    const db = level(workDir)
     const trie = new Trie(db, flags.root)
 
     const found = await new Promise((resolve, reject) => {

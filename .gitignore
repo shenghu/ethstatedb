@@ -3,6 +3,7 @@
 *.tsbuildinfo
 /.coverage
 /.db
+/.ethstatedb*
 /.nyc_output
 /.test-data
 /bin
