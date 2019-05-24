@@ -6,7 +6,6 @@
 /.ethstatedb*
 /.nyc_output
 /.test-data
-/bin
 /dist
 /lib
 /tmp
