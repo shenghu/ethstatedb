@@ -1,7 +1,7 @@
 {
   "name": "ethstatedb",
   "description": "Command to check Ethereum state database",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Sheng Hu <shenghubj@gmail.com>",
   "bin": {
     "ethstatedb": "./bin/run"
