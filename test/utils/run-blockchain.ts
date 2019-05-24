@@ -1,10 +1,10 @@
 import Account from 'ethereumjs-account'
 import * as ethereumUtil from 'ethereumjs-util'
+import * as fs from 'fs-extra'
 import leveldown from 'leveldown'
 import levelup from 'levelup'
 import * as util from 'util'
 
-const fs = require('fs-extra')
 const ethjsUtil = require('ethjs-util')
 const Trie = require('merkle-patricia-tree/secure')
 const Block = require('ethereumjs-block')
