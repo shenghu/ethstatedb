@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/shenghu/ethstatedb/compare/v1.0.6...v1.0.7) (2019-05-28)
+
+
+### Bug Fixes
+
+* remove formatBlockHeader ([1a1c281](https://github.com/shenghu/ethstatedb/commit/1a1c281))
+
 ## [1.0.6](https://github.com/shenghu/ethstatedb/compare/v1.0.5...v1.0.6) (2019-05-24)
 
 
