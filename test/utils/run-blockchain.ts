@@ -35,16 +35,6 @@ function format(a: any, toZero?: any, isHex?: boolean) {
   return a
 }
 
-function formatBlockHeader(data: any) {
-  const r: { [key: string]: any } = {}
-  const keys = Object.keys(data)
-  keys.forEach((key: string) => {
-    r[key] = ethereumUtil.addHexPrefix(data[key])
-  })
-
-  return r
-}
-
 async function setupPreConditions(state: any, testData: any) {
   const keysOfPre = Object.keys(testData.pre)
 
@@ -142,7 +132,7 @@ export async function runBlockchain(config: BlockChainConfig) {
 
   // Create genesis block
   await new Promise((resolve, reject) => {
-    genesisBlock.header = new Block.Header(formatBlockHeader(data.genesisBlockHeader),
+    genesisBlock.header = new Block.Header(data.genesisBlockHeader,
       {hardfork})
     blockchain.putGenesis(genesisBlock, (err: any, value: any) => {
       if (err) reject(err)
