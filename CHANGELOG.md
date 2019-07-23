@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/shenghu/ethstatedb/compare/v1.0.7...v1.0.8) (2019-07-23)
+
+
+### Bug Fixes
+
+* security update for dependencies ([7c127e5](https://github.com/shenghu/ethstatedb/commit/7c127e5))
+
 ## [1.0.7](https://github.com/shenghu/ethstatedb/compare/v1.0.6...v1.0.7) (2019-05-28)
 
 
